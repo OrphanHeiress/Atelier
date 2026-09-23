@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Atelier — Alisa's Art Agent</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ============ PRIVATE GATE ============ -->
+<div id="gate" class="gate">
+  <div class="gate-box">
+    <span class="mark">◆</span>
+    <h1>Atelier</h1>
+    <p class="note">Private workspace — Alisa Rigolin</p>
+    <input type="password" id="gate-pass" placeholder="Password" autocomplete="current-password">
+    <button class="primary" id="gate-go">Enter</button>
+    <p class="note" id="gate-msg"></p>
+  </div>
+</div>
+
+<div id="app" hidden>
+<header>
+  <div class="brand">
+    <span class="mark">◆</span>
+    <div>
+      <h1>Atelier</h1>
+      <p class="sub">Alisa Rigolin — art agent</p>
+    </div>
+  </div>
+  <nav>
+    <button class="tab active" data-view="start">Start here</button>
+    <button class="tab" data-view="outreach">Outreach</button>
+    <button class="tab" data-view="lookbook">Lookbook</button>
+    <button class="tab" data-view="pricing">Price</button>
+    <button class="tab" data-view="linesheet">Line sheet</button>
+    <button class="tab" data-view="toolkit">Toolkit</button>
+  </nav>
+</header>
+
+<main>
+  <!-- ============ START ============ -->
+  <section id="start" class="view active">
+    <div class="card hero">
+      <h2>Start here</h2>
+      <p class="lede">This is your private workspace. Everything in it is yours; the thinking behind it happens in the chat.</p>
+      <a class="biglink" href="https://chat.letta.com/chat/agent-8534c05b-8546-482c-8290-ba03fb5e2f98" target="_blank" rel="noopener">
+        Talk to Jinx — open the conversation →
+      </a>
+      <p class="note">Your agent remembers your work, your market, your voice, and your plan.</p>
+    </div>
+
+    <div class="card">
+      <h2>Do this first</h2>
+      <div class="nextaction">
+        <h3>Send the five outreach emails</h3>
+        <p>They're written. Personalize the brackets, send from your own address. Four of these five already source from independent artists, so you're not cold.</p>
+        <p class="note"><strong>Time:</strong> ~1 hour. <strong>Why first:</strong> everything else depends on someone seeing your work.</p>
+        <button class="primary" data-goto="outreach">Open the drafts →</button>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>Then, in order</h2>
+      <ol class="rules">
+        <li><strong>Send the lookbook</strong> when they reply — one link, sized to their project. <em>(Lookbook tab)</em></li>
+        <li><strong>Quote with confidence</strong> using your price sheet. <em>(Price tab)</em></li>
+        <li><strong>Ship a certificate of authenticity</strong> with every sale. <em>(Toolkit tab)</em></li>
+        <li><strong>Fix the Carrd</strong> — change "first to bid" to "first access." <em>(Toolkit tab)</em></li>
+      </ol>
+    </div>
+
+    <div class="card">
+      <h2>What your agent knows</h2>
+      <div class="two-col">
+        <div class="mini">
+          <h3>Your work</h3>
+          <ul class="rules">
+            <li>Figurative line work — figures absorbed in their own lives</li>
+            <li>Black on stained, aged paper; charcoal, acrylic, graphite</li>
+            <li>Sizes: 8×11, 16×22, 22×28 paper · 22×16 canvas</li>
+            <li>Series: <em>Library of Her Own Body</em></li>
+          </ul>
+        </div>
+        <div class="mini">
+          <h3>Your market</h3>
+          <ul class="rules">
+            <li><strong>Designer/trade first</strong> — ~180k outlets vs ~5k galleries</li>
+            <li>You keep 70–80% instead of ~50%, and get paid half up front</li>
+            <li>Hospitality commissions figurative line work</li>
+            <li>Comparable: Dario Moschetta, studio-direct to designers</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>Your data</h2>
+      <p class="note">Stored in this browser only. Export saves your work to a file you own.</p>
+      <div class="two-col" style="margin-top:12px">
+        <button class="primary" id="d-export">Export my data</button>
+        <button class="primary" id="d-import">Import from file</button>
+      </div>
+      <input type="file" id="d-file" accept="application/json" style="display:none">
+      <p class="note" id="d-status" style="margin-top:10px"></p>
+    </div>
+  </section>
+
+  <!-- ============ OUTREACH ============ -->
+  <section id="outreach" class="view">
+    <div class="card">
+      <h2>Your five emails — written, ready to send</h2>
+      <p class="lede">Each is tailored to what that specific lead actually does. Fill the <code>[brackets]</code>, then send from your own address. You always send — never me.</p>
+      <p class="note"><strong>Rule that matters:</strong> don't pitch — introduce. Short, specific, one clear next step. Then follow up in 7–10 days.</p>
+      <p class="note"><strong>Why there's no price in these:</strong> the outreach guidance is clear — the first cold email carries a portfolio link and a capabilities statement; <em>sizes and price ranges go in the line sheet you send when they respond.</em> Quoting a number too early also anchors you to it before they've seen anything. So: mention that you offer trade pricing, put the numbers in the line sheet.</p>
+    </div>
+
+    <div class="card">
+      <div class="lead-head"><h3>1 · Holloway Studios</h3><span class="tag">Chicago · commission program</span></div>
+      <p class="note">They run a commission program with designers and stagers — this is the closest fit on your list. Lead with the trade program.</p>
+      <div class="tpl"><button class="copy">Copy</button>
+<pre>Subject: Original work for Holloway Studios — trade pricing
+
+Hi [name],
+
+I'm Alisa Rigolin, a painter in Chicago. I make one-of-a-kind
+figurative line work — black on stained paper and canvas. Figures
+mostly alone and unbothered: reading, thinking, or stepping out of
+an old story.
+
+I read that you run a commission program with designers and stagers.
+I'd like to be a resource for it — trade pricing, non-exclusive,
+50% deposit / 50% on delivery, and I'm local.
+
+A few pieces available now: [2–3 works + sizes]
+
+Happy to send a line sheet with sizes and pricing, and a lookbook
+sized to your projects.
+
+Alisa Rigolin
+[website] · [instagram]</pre></div>
+    </div>
+
+    <div class="card">
+      <div class="lead-head"><h3>2 · Lauren Coburn</h3><span class="tag">Chicago · designer</span></div>
+      <p class="note">She specifically likes emerging artists. Lean into being early-career and being local.</p>
+      <div class="tpl"><button class="copy">Copy</button>
+<pre>Subject: Figurative work — Chicago painter
+
+Hi Lauren,
+
+I'm Alisa Rigolin — a Chicago painter making one-of-a-kind figurative
+line work in black on stained paper. The figures are usually alone
+and unbothered: reading, thinking, or pulled from a myth.
+
+I'm early in my career, which I gather is the stage you tend to work
+with. I'd love to be on your radar — trade pricing, non-exclusive,
+and I deliver locally.
+
+A few available now: [2–3 works + sizes]
+
+Happy to send a line sheet and a lookbook sized to whatever you're
+working on.
+
+Alisa Rigolin
+[website] · [instagram]</pre></div>
+    </div>
+
+    <div class="card">
+      <div class="lead-head"><h3>3 · Delia LaJeunesse Art Consulting</h3><span class="tag">Los Angeles · art library</span></div>
+      <p class="note">A designer-facing art library. Speak to how your work functions as a resource for their designers, not as a one-off sale.</p>
+      <div class="tpl"><button class="copy">Copy</button>
+<pre>Subject: Work for the library — Alisa Rigolin
+
+Hi Delia,
+
+I'm Alisa Rigolin, a painter making one-of-a-kind figurative line work
+— black on stained paper and canvas. Figures absorbed in their own
+lives, or drawn from older stories.
+
+I'd like to be part of what your designers can draw from: non-exclusive,
+trade pricing, 50% deposit / 50% on delivery, and I ship or deliver.
+
+Current pieces: [2–3 works + sizes + tone]
+
+Happy to send a line sheet with sizes and prices, plus a lookbook
+sized to your designers' usual projects.
+
+Alisa Rigolin
+[website] · [instagram]</pre></div>
+    </div>
+
+    <div class="card">
+      <div class="lead-head"><h3>4 · Emily Colvin / Projects at Large</h3><span class="tag">Los Angeles · art rental</span></div>
+      <p class="note">Art rental — pieces under $1,500 rent at ~$135/week and convert to purchase. Speak to durability, install ease, and conversion.</p>
+      <div class="tpl"><button class="copy">Copy</button>
+<pre>Subject: Rental placements — original figurative work
+
+Hi Emily,
+
+I'm Alisa Rigolin, a painter in [city]. I make one-of-a-kind figurative
+line work on stained paper and canvas — quiet, neutral, and easy to
+place.
+
+I'd like to offer work for your rental program. Several of my pieces
+would suit short- and long-term placement, and I'd be glad to discuss
+terms.
+
+Available now: [2–3 works + sizes]
+
+Could we talk about how you structure placements? Happy to send a
+line sheet with sizes and pricing first.
+
+Alisa Rigolin
+[website] · [instagram]</pre></div>
+    </div>
+
+    <div class="card">
+      <div class="lead-head"><h3>5 · deKor LA</h3><span class="tag">Los Angeles · trade program</span></div>
+      <p class="note">They run a trade program with independent artists. Short and direct — they already have the structure, you're asking to join it.</p>
+      <div class="tpl"><button class="copy">Copy</button>
+<pre>Subject: Trade program — original figurative work
+
+Hi [name],
+
+I'm Alisa Rigolin, a painter making one-of-a-kind figurative line work
+in black on stained paper and canvas. Figures absorbed in their own
+lives.
+
+I saw that deKor works with independent artists through a trade
+program. I'd like to be considered. Happy to work to your standard
+terms.
+
+A few available now: [2–3 works + sizes]
+
+Is there a submission process I should follow? I can send a line sheet
+and lookbook with it.
+
+Alisa Rigolin
+[website] · [instagram]</pre></div>
+    </div>
+
+    <div class="card">
+      <div class="lead-head"><h3>6 · Celestial Art Curation</h3><span class="tag">Chicago · curator</span></div>
+      <p class="note">A curator — she selects work rather than buying for a project. Lead with the series and the thesis, not terms.</p>
+      <div class="tpl"><button class="copy">Copy</button>
+<pre>Subject: Series inquiry — Alisa Rigolin, Chicago
+
+Hi [name],
+
+I'm Alisa Rigolin, a Chicago painter. I make one-of-a-kind figurative
+line work in black on stained paper and canvas — figures absorbed in
+their own lives, or drawn from older stories. The ongoing series is
+called Library of Her Own Body.
+
+I'd like to be considered for your curation. Happy to send a lookbook
+with sizes and pricing, and I'm local for anything in person.
+
+A few available now: [2–3 works + sizes]
+
+Alisa Rigolin
+[website] · [instagram]</pre></div>
+    </div>
+
+    <div class="card">
+      <div class="lead-head"><h3>7 · Art Solutions</h3><span class="tag">Los Angeles · staging &amp; hospitality</span></div>
+      <p class="note">They source from artists for staging and hospitality. Speak to speed, durability, and installation readiness — their priorities.</p>
+      <div class="tpl"><button class="copy">Copy</button>
+<pre>Subject: Original work for staging — Alisa Rigolin
+
+Hi [name],
+
+I'm Alisa Rigolin, a painter making one-of-a-kind figurative line work
+on stained paper and canvas — quiet, neutral, and easy to place in most
+palettes.
+
+I understand you source original work for staging and hospitality
+projects. I'd like to be on your list. Trade pricing, non-exclusive,
+and I can work to short lead times.
+
+Available now: [2–3 works + sizes]
+
+Happy to send a line sheet with sizes and pricing, and installation
+notes.
+
+Alisa Rigolin
+[website] · [instagram]</pre></div>
+    </div>
+
+    <div class="card">
+      <h2>Follow-up (send 7–10 days later)</h2>
+      <p class="note">Most sales happen after the first message, not the first one. This is the highest-value email on the page.</p>
+      <div class="tpl"><button class="copy">Copy</button>
+<pre>Subject: Re: [original subject]
+
+Hi [name],
+
+Circling back briefly — I just finished [title, size], which felt very
+much in the spirit of [their aesthetic / current project].
+
+Happy to hold it for you to show a client. Either way I'd love to stay
+on your radar.
+
+Alisa</pre></div>
+    </div>
+
+    <div class="card">
+      <h2>Pipeline</h2>
+      <p class="note">Tap a status to cycle it: Not contacted → Drafted → Sent → Replied → Won / Pass.</p>
+      <div class="filters" id="filters">
+        <button class="chip active" data-city="all">All</button>
+        <button class="chip" data-city="Top fit">Top fit</button>
+        <button class="chip" data-city="Chicago">Chicago</button>
+        <button class="chip" data-city="Los Angeles">Los Angeles</button>
+      </div>
+      <table id="leads-table">
+        <thead><tr><th>Lead</th><th>Type</th><th>City</th><th>Status</th></tr></thead>
+        <tbody></tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ============ LOOKBOOK ============ -->
+  <section id="lookbook" class="view">
+    <div class="card">
+      <h2>Your lookbook</h2>
+      <p class="lede">This is what a designer sees when you send them a link. Name each piece below — your titles save on this device and appear here.</p>
+      <div class="works" id="works"></div>
+      <p class="note" id="works-note"></p>
+    </div>
+    <div class="card">
+      <h2>What goes with it</h2>
+      <blockquote class="story">Figures absorbed in their own lives — in black, on aged paper.</blockquote>
+      <p class="note">For designers: <em>Original figurative line work — one of a kind, quiet, and made for rooms that feel inhabited rather than decorated.</em></p>
+      <p class="note"><strong>Why presentation matters:</strong> room mockups and in-situ shots convert 2–3× better than flat scans. You already did this once with the classical head — do it for every piece.</p>
+    </div>
+  </section>
+
+  <!-- ============ PRICE ============ -->
+  <section id="pricing" class="view">
+    <div class="card">
+      <h2>Where your prices sit</h2>
+      <p class="lede">Built from your real numbers — the supplies and hours you told me. Your <strong>floor</strong> is what you must charge; the <strong>market</strong> is what comparable work sells for. Your price goes between them.</p>
+      <table>
+        <thead><tr><th>Work</th><th>Your floor</th><th>Market range</th><th>Suggested</th><th>You keep</th></tr></thead>
+        <tbody>
+          <tr><td><strong>8×11</strong> paper</td><td>$75</td><td>$150–$400</td><td><strong>$150–$200</strong></td><td>~$116/hr</td></tr>
+          <tr><td><strong>16×22</strong> paper</td><td>$130</td><td>$400–$900</td><td><strong>$400–$550</strong></td><td>~$189/hr</td></tr>
+          <tr><td><strong>22×28</strong> paper</td><td>$210</td><td>$700–$1,800</td><td><strong>$650–$900</strong></td><td>~$193/hr</td></tr>
+          <tr><td><strong>22×16</strong> canvas</td><td>$150</td><td>$400–$900</td><td><strong>$400–$500</strong></td><td>~$175/hr</td></tr>
+        </tbody>
+      </table>
+      <p class="note" style="margin-top:12px"><strong>Why you can charge this:</strong> your materials are near-zero ($0.50–$4 on paper), so your floor is almost entirely labour. It sits <em>below</em> the market at every size — which means cost never forces you to undercharge. You have room.</p>
+      <p class="note"><strong>Trade price</strong> = retail − 20%. So a $175 piece is $150 to a designer, and you still keep ~$150.</p>
+      <p class="note"><strong>Framing:</strong> quote it separately. Unframed is the default price; a frame adds its own cost plus margin ($6–$20 frame → add roughly $30–$45).</p>
+    </div>
+
+    <div class="card">
+      <h2>Your price sheet</h2>
+      <p class="note">One price everywhere. Never discount — offer options instead. Trade price is retail − 20%.</p>
+      <table id="price-table">
+        <thead><tr><th>Work</th><th>Size</th><th>Retail</th><th>Trade (20%)</th><th>Per sq in</th><th></th></tr></thead>
+        <tbody></tbody>
+      </table>
+      <p class="empty" id="price-empty">No works priced yet — use the calculator below.</p>
+    </div>
+
+    <div class="two-col">
+      <div class="card">
+        <h2>Price a work</h2>
+        <div class="field-row">
+          <label>Width <input type="number" id="p-w" value="16" min="1" step="0.5"></label>
+          <label>Height <input type="number" id="p-h" value="22" min="1" step="0.5"></label>
+          <label>Units
+            <select id="p-units"><option value="in">inches</option><option value="cm">cm</option></select>
+          </label>
+        </div>
+        <div class="field-row">
+          <label>Surface
+            <select id="p-surface">
+              <option value="paper">Paper (stained / watercolour ground)</option>
+              <option value="canvas">Canvas</option>
+            </select>
+          </label>
+          <label>Career stage
+            <select id="p-stage">
+              <option value="1.0">Emerging (1.0×)</option>
+              <option value="1.15" selected>Early emerging (1.15×)</option>
+              <option value="1.3">Building (1.3×)</option>
+              <option value="1.6">Established-ish (1.6×)</option>
+            </select>
+          </label>
+          <label>Method
+            <select id="p-method">
+              <option value="psi">Square inch</option>
+              <option value="lin">Linear inch</option>
+              <option value="time">Time + materials</option>
+            </select>
+          </label>
+        </div>
+        <div class="field-row">
+          <label>Rate ($/in²) <input type="number" id="p-rate" value="1.00" min="0.05" step="0.05"></label>
+          <label>Hours <input type="number" id="p-hours" value="2.5" min="0" step="0.5"></label>
+          <label>Hourly <input type="number" id="p-hr" value="35" min="0" step="1"></label>
+        </div>
+        <div class="field-row">
+          <label>Materials + stain <input type="number" id="p-mat" value="2" min="0" step="0.5"></label>
+          <label>Frame (0 if unframed) <input type="number" id="p-frame" value="0" min="0" step="1"></label>
+          <label>Finished <input type="text" id="p-title" placeholder="Title"></label>
+        </div>
+        <button class="primary" id="p-add">Add to price sheet</button>
+      </div>
+      <div class="card result">
+        <h2>Suggested</h2>
+        <div class="price-big" id="p-out">$0</div>
+        <div class="price-grid">
+          <div><span class="k">Trade (20% off)</span><span class="v" id="p-trade">$0</span></div>
+          <div><span class="k">You keep — designer @20%</span><span class="v" id="p-keep-d">$0</span></div>
+          <div><span class="k">You keep — gallery @50%</span><span class="v" id="p-keep-g">$0</span></div>
+          <div><span class="k">Your floor (must charge)</span><span class="v" id="p-floor">$0</span></div>
+        </div>
+        <p class="note" id="p-note"></p>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>Your comparables</h2>
+      <table>
+        <thead><tr><th>Artist</th><th>Work</th><th>Price</th></tr></thead>
+        <tbody>
+          <tr><td>Dario Moschetta</td><td>8×11" ink portrait, unframed + COA</td><td>€139 (~$150)</td></tr>
+          <tr><td>John F Junior</td><td>23×16.5" ink + watercolour</td><td>€1,500</td></tr>
+          <tr><td>Lana Korolievskaia</td><td>35×24" ink on cardboard</td><td>$2,214</td></tr>
+        </tbody>
+      </table>
+      <p class="note" style="margin-top:10px"><strong>Your prices aren't set yet.</strong> The example band ($200–$1,000) was mine, not yours — I invented it early on. Use the comparables below as real market context: Dario Moschetta sells an 8×11" ink portrait at €139; John F Junior €1,500 for 23×16.5". Set your own number, then keep it consistent everywhere.</p>
+    </div>
+  </section>
+
+  <!-- ============ LINE SHEET ============ -->
+  <section id="linesheet" class="view">
+    <div class="card noprint">
+      <h2>Your line sheet</h2>
+      <p class="lede">This is the document your emails promise — the one you send <em>after</em> a designer replies. It builds itself from your Portfolio titles and your Price list.</p>
+      <p class="note">Fill in the Portfolio tab (titles, medium·size) and the Price tab (a price per work), then use the button below to save it as a PDF and send it.</p>
+      <button class="primary" id="ls-print">Print / Save as PDF</button>
+      <p class="note" id="ls-status"></p>
+    </div>
+
+    <div id="ls-doc" class="lsdoc">
+      <div class="ls-head">
+        <h1>Alisa Rigolin</h1>
+        <p class="ls-pos">Figures absorbed in their own lives — in black, on aged paper.</p>
+      </div>
+
+      <p class="ls-intro">Original figurative line work — one of a kind, on stained paper and canvas.
+      Made for rooms that feel inhabited rather than decorated.</p>
+
+      <div class="ls-works" id="ls-works"></div>
+
+      <h2 class="ls-h2">Pricing</h2>
+      <table class="ls-table" id="ls-table">
+        <thead><tr><th>Work</th><th>Size</th><th>Retail</th><th>Trade (20%)</th></tr></thead>
+        <tbody></tbody>
+      </table>
+      <p class="ls-empty" id="ls-empty">No priced works yet — add them in the Price tab.</p>
+
+      <h2 class="ls-h2">Terms</h2>
+      <ul class="ls-terms">
+        <li><strong>Trade discount</strong> — 20% off retail for verified designers</li>
+        <li><strong>Payment</strong> — 50% deposit, 50% on delivery</li>
+        <li><strong>Exclusivity</strong> — none; work is non-exclusive</li>
+        <li><strong>Commissions</strong> — available; sized to your wall and palette, quoted separately from inventory</li>
+        <li><strong>Framing</strong> — unframed by default; framing available on request</li>
+        <li><strong>Delivery</strong> — local in [city]; shipping arranged on request, insured</li>
+        <li><strong>Documentation</strong> — every original ships with a signed certificate of authenticity</li>
+      </ul>
+
+      <div class="ls-contact">
+        <p><strong>Alisa Rigolin</strong> · [website] · [instagram] · [email]</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ TOOLKIT ============ -->
+  <section id="toolkit" class="view">
+    <div class="card">
+      <h2>Why people buy art — the evidence</h2>
+      <p class="lede">Not opinion. Studies and market data. This is the reasoning behind every price, every email, and every photo below.</p>
+
+      <h3 style="margin-top:18px">What actually drives a purchase</h3>
+      <table>
+        <thead><tr><th>Driver</th><th>Effect</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Aesthetic sensitivity</strong></td><td><strong>Strongest predictor</strong> (β = 0.42)</td></tr>
+          <tr><td><strong>Emotional resonance</strong></td><td>Second (β = 0.31)</td></tr>
+          <tr><td>Social prestige</td><td>Varies — younger buyers value it more</td></tr>
+          <tr><td>Investment potential</td><td>Correlates with income</td></tr>
+        </tbody>
+      </table>
+      <p class="note" style="margin-top:10px"><strong>92% of collectors buy for emotional reasons.</strong> Social recognition is the <em>weakest</em> motivator — about 10%. People aren't buying status. They're buying feeling.</p>
+
+      <h3 style="margin-top:22px">Storytelling — the measured effect</h3>
+      <ul class="rules">
+        <li><strong>+2,700%</strong> — the Significant Objects study: identical thrift-store items sold for 2,700% more when paired with a written story.</li>
+        <li><strong>30–150% premium</strong> — narrative-rich art over comparable narrative-poor work.</li>
+        <li><strong>Up to 2,700%</strong> — authentic creation stories increase willingness to pay versus no narrative.</li>
+      </ul>
+      <p class="note"><strong>Why it works, in three parts:</strong> the story creates emotional attachment, it gives the buyer <em>justification</em> for the price, and it proves human effort — the "effort heuristic." "I love it" covers the emotion; the story covers the reason.</p>
+
+      <h3 style="margin-top:22px">Your market — the generational shift</h3>
+      <ul class="rules">
+        <li><strong>63%</strong> of collectors bought directly from artists — studios, commissions, or social.</li>
+        <li><strong>51%</strong> purchased via Instagram <em>without seeing the work in person</em>.</li>
+        <li><strong>89%</strong> of Gen Z collectors are drawn to work by emerging artists.</li>
+        <li><strong>Buyers aged 18–24 are 25% more likely to buy based on the story.</strong></li>
+        <li><strong>70%+</strong> buy specifically to support artists (vs 36% of Boomers).</li>
+        <li><strong>72%</strong> are interested in emerging artists; <strong>66%</strong> bought from someone new to them this year — a record.</li>
+      </ul>
+      <p class="note"><strong>But be clear-eyed:</strong> emerging artists get only <strong>35% of high-net-worth spending</strong>. Discovery is high; big money still follows documented records. That's why the COA and provenance matter.</p>
+      <p class="note"><strong>And small work is booming:</strong> pieces under 40×40cm are <strong>40% of purchases</strong>, small/miniature sales are up <strong>66% year on year</strong>. Your 8×11s are in the hottest category there is.</p>
+
+      <h3 style="margin-top:22px">How to raise perceived value — the proven levers</h3>
+      <ol class="rules">
+        <li><strong>Room context.</strong> Photoreal room mockups raise perceived value <strong>15–40%</strong> and drive <strong>2–3× more serious inquiries</strong> — before you change the price.</li>
+        <li><strong>Anchor high.</strong> Show a larger, higher-priced piece first. Everything after is judged against it, and your entry pieces feel attainable.</li>
+        <li><strong>Round numbers.</strong> $2,500 reads as an investment. $2,499.99 reads as a discount.</li>
+        <li><strong>Three tiers.</strong> Prints → limited → originals. It pre-empts "too expensive" by giving a lower rung.</li>
+        <li><strong>Payment plans.</strong> $600 × 3 feels far smaller than $1,800. Same money, less weight.</li>
+        <li><strong>Reframe over time.</strong> $1,800 on a wall for 30 years is about $5 a month.</li>
+        <li><strong>Offer a return window.</strong> It makes the decision reversible — and buyers almost never use it.</li>
+        <li><strong>Document everything.</strong> Incomplete provenance measurably reduces resale value. The COA is a value-protection device, not paperwork.</li>
+      </ol>
+
+      <h3 style="margin-top:22px">What does <em>not</em> work</h3>
+      <ul class="rules">
+        <li><strong>Lowering the price.</strong> Buyers read price as quality data. A discount signals doubt.</li>
+        <li><strong>Leading with status.</strong> It's the weakest motivator.</li>
+        <li><strong>"DM for price"</strong> at your range — it filters out real buyers. Show the number.</li>
+        <li><strong>Raising prices before upgrading presentation.</strong> Wrong order = more abandonment, fewer inquiries.</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h2>Certificate of authenticity</h2>
+      <p class="note">Ship one with every original. It's part of what buyers pay for, and it protects your resale value. Fill the brackets and print on acid-free paper.</p>
+      <div class="tpl"><button class="copy">Copy</button>
+<pre>CERTIFICATE OF AUTHENTICITY
+
+Artist          Alisa Rigolin
+Title           [title]
+Year            [year]
+Medium          [e.g. watercolour wash and charcoal on stained paper]
+Dimensions      [h × w in] ([h × w cm])
+Edition         One of a kind — original
+Inventory no.   AR-[000]
+
+[Photograph of the work]
+
+I certify that this artwork is an original creation by Alisa Rigolin.
+
+Signed  ______________________     Date  ____________
+
+Contact  [website] · [email]</pre></div>
+      <p class="note">Keep a copy of every COA you issue. Sign by hand — printed signatures are a red flag to serious buyers.</p>
+    </div>
+
+    <div class="card warn">
+      <h2>⚠ Red flags — I will always call these out</h2>
+      <p class="lede">The art world has an industry built on taking money from hopeful artists. If any of this shows up, stop before you pay or sign.</p>
+      <ul class="rules">
+        <li><strong>"We discovered your work — pay a fee to exhibit."</strong> Real galleries don't charge you to show.</li>
+        <li><strong>Pressure + urgency.</strong> "Limited slot, decide in 48 hours" is a script, not an opportunity.</li>
+        <li><strong>No names.</strong> If a gallery won't name owners, directors, or jurors, walk.</li>
+        <li><strong>Fake followers.</strong> Bots can suppress your real reach. Never buy them.</li>
+        <li><strong>They dodge the sales question.</strong> If they can't say how they reach collectors, they don't.</li>
+        <li><strong>No contract, no inventory sheet, no insurance</strong> on a consignment.</li>
+        <li><strong>Commission AND a fee.</strong> One or the other. Both is exploitation.</li>
+      </ul>
+      <p class="note"><strong>The one-question test:</strong> <em>Are they making money when my art sells, or when I pay?</em></p>
+    </div>
+
+    <div class="card">
+      <h2>Fix your Carrd — two small edits</h2>
+      <ol class="rules">
+        <li><strong>Change "be the first to bid" → "get first access to new releases."</strong> Bidding implies an auction, and auctions need demand to work. Without it, an auction broadcasts that there isn't any — and quietly lowers your prices.</li>
+        <li><strong>Add titles to the works.</strong> Untitled work reads as unfinished. Even "Untitled No. 3" is better than nothing.</li>
+      </ol>
+      <p class="note">Then decide: keep Carrd as the front door, or retire it once the lookbook is stronger. One artifact is simpler than two.</p>
+    </div>
+
+    <div class="card">
+      <h2>Releases — waitlist first</h2>
+      <ol class="rules">
+        <li><strong>Waitlist first.</strong> Before a piece goes public, the list hears first. Right of first refusal — the strongest collector perk, and it costs nothing.</li>
+        <li><strong>First-come once it's public.</strong> Simple, fair.</li>
+        <li><strong>Bidding only later</strong>, for a standout piece with proven demand.</li>
+      </ol>
+    </div>
+
+    <div class="card">
+      <h2>Sales — how to handle money</h2>
+      <ul class="rules">
+        <li><strong>Inquiry, not checkout.</strong> Don't put a Buy button on originals. It trains people to comparison-shop and strips the conversation where price integrity lives.</li>
+        <li><strong>Payment:</strong> Stripe or PayPal invoice. Over ~$500, offer 2–3 payments.</li>
+        <li><strong>Deposits:</strong> Commissions 50% up front. Originals paid in full before shipping.</li>
+        <li><strong>Designers:</strong> 20% trade, 50/50 or net-30, itemized invoice.</li>
+        <li><strong>Don't build a store.</strong> No volume, and one-of-ones don't need inventory management.</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h2>Getting your work into a room</h2>
+      <p class="lede">Room context is worth <strong>15–40% perceived value</strong> and drives <strong>2–3× more serious inquiries</strong>. Three ways to get it, best first.</p>
+
+      <h3 style="margin-top:18px">1 · Photograph it on a real wall (free, and best)</h3>
+      <p class="note">Your own apartment is enough. This is stronger than any mockup because it's <em>true</em> — and you already did it once with the classical head.</p>
+      <ul class="rules">
+        <li><strong>Natural light, side window.</strong> Overcast beats sunny — direct sun makes harsh contrast.</li>
+        <li><strong>Stand 10–15° off-centre</strong>, not dead-on. This kills glare on glass and varnish. Tilt the phone a degree or two away from the wall if a hotspot remains.</li>
+        <li><strong>Phone is fine.</strong> Clean the lens, shoot at highest resolution, ProRAW if you have it.</li>
+        <li><strong>Turn HDR off</strong> — it blows out highlights and muddies detail.</li>
+        <li><strong>Rule of thirds.</strong> Put the frame in one third, let the room fill the rest. Shoot slightly below eye level — straight-on looks flat.</li>
+        <li><strong>Fix perspective in Snapseed or VSCO</strong> — the vertical slider straightens the frame edges.</li>
+      </ul>
+
+      <h3 style="margin-top:22px">2 · MOCKLIO — free forever</h3>
+      <p class="note"><a href="https://mockl.io/art-mockups" target="_blank" rel="noopener">mockl.io</a> — image mockups are <strong>100% free forever, no credit card, no limits.</strong> Upload the work, pick a scene, download. Under 60 seconds. They only charge $12 for cinematic video reels.</p>
+      <p class="note">Best for volume — every piece in your catalog, fast. Scenes are grouped by buyer: living room and bedroom for home buyers, gallery loft for higher-ticket originals.</p>
+
+      <h3 style="margin-top:22px">3 · WallMockup — true-scale accuracy</h3>
+      <p class="note"><a href="https://www.wallmockup.net/" target="_blank" rel="noopener">wallmockup.net</a> — <strong>7-day free trial</strong>, then $4.99/mo. Its advantage: you enter <em>real dimensions</em>, so a 16×22 looks like a 16×22 next to a sofa.</p>
+      <p class="note">That matters more than it sounds. Most free tools scale art to fill a fixed template, which makes every piece look the same size — that misleads buyers and causes returns. Use this when exact scale is the point. Also does 412+ scenes, gallery walls up to 24 pieces, and AI-generated rooms.</p>
+
+      <h3 style="margin-top:22px">On AI-generated rooms — one caution</h3>
+      <p class="note">AI room tools exist (WallMockup's Custom Mockup, Wallnora, Sebsvisual). They work, and WallMockup keeps your artwork as a separate untouched layer rather than sending it to the model — good practice.</p>
+      <p class="note"><strong>But be careful.</strong> The research is unambiguous that buyers prefer human-made work and pay a premium for authenticity. An AI room that reads slightly uncanny can make your <em>art</em> feel less real — which works directly against your strongest asset. Use AI rooms for speed when you need volume, but <strong>lead your portfolio and your best pieces with real photographs.</strong></p>
+
+      <h3 style="margin-top:22px">Which room for which piece</h3>
+      <ul class="rules">
+        <li><strong>Intimate work</strong> (bedrooms, reading, wine, quiet figures) → soft, warm rooms. Bedroom, reading nook, Scandinavian, soft Mediterranean.</li>
+        <li><strong>Statement work</strong> (Medusa, the classical head, large canvases) → gallery loft, fireplace gallery, modern loft. These scenes justify higher prices.</li>
+        <li><strong>Test two scenes per piece</strong> and keep whichever converts. Presentation is the cheapest credibility signal you control.</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h2>Framing — your biggest cost, biggest lever</h2>
+      <div class="two-col">
+        <div class="mini">
+          <h3>Do</h3>
+          <ul class="rules">
+            <li><strong>Offer both</strong> — unframed default, framed upgrade. "$340 framed / $250 unframed."</li>
+            <li><strong>Keep a small stock</strong> of neutral frames in 3–4 standard sizes.</li>
+            <li><strong>Price the frame as a product</strong> — cost + margin.</li>
+          </ul>
+        </div>
+        <div class="mini">
+          <h3>Don't</h3>
+          <ul class="rules">
+            <li><strong>Pre-frame everything</strong> — capital stuck in inventory.</li>
+            <li><strong>Use cheap plastic</strong> on originals.</li>
+            <li><strong>Hide the unframed option</strong> — designers frame themselves.</li>
+          </ul>
+        </div>
+      </div>
+      <p class="note">Paper reads unfinished bare, so framing matters more for you than for canvas. Canvas can be gallery-wrapped and need no frame at all.</p>
+    </div>
+
+    <div class="card">
+      <h2>The tested marketing playbook</h2>
+      <ul class="rules">
+        <li><strong>Story over product.</strong> Storytelling converts <strong>32% better</strong>; <strong>63% of buyers pay more</strong> for a work with a real story.</li>
+        <li><strong>Presentation is the price lever.</strong> Room mockups ≈ <strong>2–3× conversion</strong> vs flat scans.</li>
+        <li><strong>Consistency beats everything.</strong> One good photo a week beats a burst.</li>
+        <li><strong>Email is the #1 channel</strong> — <strong>42% of creator sales</strong>. Start a list now, even at ten people.</li>
+        <li><strong>Most sales happen after the first message.</strong> Follow up.</li>
+        <li><strong>Give early access, not discounts.</strong></li>
+        <li><strong>Scarcity must be real.</strong> Yours already is. Never invent it.</li>
+      </ul>
+    </div>
+  </section>
+</main>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
