@@ -189,11 +189,18 @@ function computePrice() {
   const taper = area > 1200 ? 0.85 : area > 600 ? 0.94 : 1;
   const surfaceAdj = surface === "paper" ? 1.08 : 1;
 
-  const retail = Math.round((base * stage * taper * surfaceAdj) / 5) * 5 + frame;
+  const retailRaw = Math.round((base * stage * taper * surfaceAdj) / 5) * 5 + frame;
+  // Small originals have a minimum viable price. Below this the transaction
+  // (time, packing, shipping, admin) eats the sale, so the ladder's small-work
+  // floor is enforced here rather than left to fall out of the per-inch maths.
+  const MIN_PRICE = 150;
+  const retail = Math.max(retailRaw, MIN_PRICE);
+  const hitMinimum = retailRaw < MIN_PRICE;
   const trade = Math.round((retail * 0.8) / 5) * 5;
-  // floor = what you must charge: materials + labour, doubled for margin
+  // floor = what you must charge: materials + labour, doubled for margin.
+  // Responds to the hours and materials you enter above, not to canvas size.
   const floor = Math.round(((mat + frame) + hours * hr) * 2 / 5) * 5;
-  return { retail, trade, floor, keepD: trade, keepG: Math.round(retail * 0.5), psi: area ? retail / area : 0, win, hin };
+  return { retail, trade, floor, hitMinimum, keepD: trade, keepG: Math.round(retail * 0.5), psi: area ? retail / area : 0, win, hin };
 }
 function renderPrice() {
   const r = computePrice();
@@ -207,9 +214,11 @@ function renderPrice() {
   if (fl) fl.textContent = money(r.floor);
   const diff = r.keepD - r.keepG;
   const overFloor = r.retail - r.floor;
-  $("#p-note").textContent = diff > 0
-    ? `Floor ${money(r.floor)} · you're ${money(overFloor)} above it. A designer nets you ${money(diff)} more than a gallery — and pays half up front.`
-    : "";
+  const bits = [];
+  if (r.hitMinimum) bits.push("Below the small-work minimum of $150 — raised to hold the floor.");
+  bits.push(`Floor ${money(r.floor)} (from the hours and materials above) · you're ${money(overFloor)} above it.`);
+  if (diff > 0) bits.push(`A designer nets you ${money(diff)} more than a gallery — and pays half up front.`);
+  $("#p-note").textContent = bits.join(" ");
 }
 ["p-w","p-h","p-units","p-stage","p-method","p-rate","p-hours","p-hr","p-mat","p-frame","p-surface"]
   .forEach((id) => { const el = $("#" + id); if (el) el.addEventListener("input", renderPrice); });
