@@ -201,7 +201,8 @@ function renderPrice() {
   $("#p-trade").textContent = money(r.trade);
   $("#p-keep-d").textContent = money(r.keepD);
   $("#p-keep-g").textContent = money(r.keepG);
-  $("#p-psi").textContent = "$" + r.psi.toFixed(2);
+  const psi = $("#p-psi");
+  if (psi) psi.textContent = "$" + r.psi.toFixed(2);
   const fl = $("#p-floor");
   if (fl) fl.textContent = money(r.floor);
   const diff = r.keepD - r.keepG;
