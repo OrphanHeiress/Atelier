@@ -106,7 +106,7 @@ function renderWorks() {
     const fig = document.createElement("figure");
     fig.className = "work";
     fig.innerHTML = `
-      <div class="frame"><img src="${w.file}" alt="${c.title || "Untitled work"}" loading="lazy"></div>
+      <div class="frame blank"><span class="blank-label">${c.note ? c.note : "size —"}</span><span class="blank-hint">photo withheld</span></div>
       <figcaption>
         <input class="cap-title" data-i="${i}" placeholder="Untitled — tap to name" value="${(c.title || "").replace(/"/g, "&quot;")}">
         <input class="cap-note" data-i="${i}" placeholder="medium · size  (tap to add)" value="${(c.note || "").replace(/"/g, "&quot;")}">

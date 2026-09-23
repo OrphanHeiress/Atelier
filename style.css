@@ -222,6 +222,19 @@ code { background: #efece4; padding: 1px 5px; border-radius: 5px; font-size: 12.
   background: var(--paper); border: 1px solid var(--line); border-radius: 8px;
   padding: 8px; margin-bottom: 8px;
 }
+/* blank placeholder: photos withheld until the portfolio is finalised */
+.work .frame.blank {
+  aspect-ratio: 3 / 4; display: flex; flex-direction: column;
+  align-items: center; justify-content: center; gap: 6px;
+  border-style: dashed; color: var(--muted);
+}
+.work .frame.blank .blank-label {
+  font-family: ui-serif, Georgia, serif; font-size: 15px; color: var(--ink);
+  text-align: center; padding: 0 8px;
+}
+.work .frame.blank .blank-hint {
+  font-size: 11px; letter-spacing: .06em; text-transform: uppercase; color: var(--muted);
+}
 .work img {
   display: block; width: 100%; height: auto; border-radius: 4px; background: #eee;
 }
