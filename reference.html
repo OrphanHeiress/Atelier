@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>The Art Business Reference — verified findings</title>
+<style>
+  @page { size: letter; margin: 20mm 18mm; }
+  :root{
+    --ink:#1a1a1a; --muted:#5a5a5a; --rule:#d8d8d8;
+    --ok:#1f6b3a; --warn:#8a4b00; --bad:#8a1f1f;
+  }
+  *{box-sizing:border-box}
+  body{
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+    color:var(--ink); font-size:12.5pt; line-height:1.55; margin:0;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1{font-size:23pt; line-height:1.2; margin:0 0 6px; letter-spacing:-.01em}
+  h2{font-size:15pt; margin:30px 0 10px; padding-bottom:6px; border-bottom:1.5px solid var(--rule)}
+  h3{font-size:12.5pt; margin:20px 0 6px}
+  p{margin:0 0 10px}
+  .sub{color:var(--muted); font-size:11pt; margin-bottom:22px}
+  ul,ol{margin:0 0 12px; padding-left:20px}
+  li{margin-bottom:5px}
+  .lede{font-size:12.5pt}
+  .tag{display:inline-block; font-size:8.5pt; font-weight:700; letter-spacing:.04em;
+       text-transform:uppercase; padding:2px 7px; border-radius:3px; vertical-align:1px}
+  .v{background:#e6f2ea; color:var(--ok)}
+  .g{background:#fdf0dd; color:var(--warn)}
+  .x{background:#fbe9e9; color:var(--bad)}
+  .box{border:1px solid var(--rule); border-radius:6px; padding:12px 14px; margin:14px 0; background:#fafafa}
+  .box p:last-child{margin-bottom:0}
+  table{width:100%; border-collapse:collapse; margin:12px 0; font-size:11pt}
+  th,td{text-align:left; padding:7px 9px; border-bottom:1px solid var(--rule); vertical-align:top}
+  th{background:#f2f2f2; font-size:10pt; text-transform:uppercase; letter-spacing:.04em}
+  .fix{color:var(--bad); font-weight:600}
+  .ask{border-left:3px solid var(--ink); padding-left:12px; margin:14px 0}
+  code{font-family:ui-monospace,Menlo,Consolas,monospace; font-size:10.5pt; background:#f2f2f2; padding:1px 4px; border-radius:3px}
+  .pagebreak{page-break-before:always}
+  footer{margin-top:34px; padding-top:12px; border-top:1px solid var(--rule); color:var(--muted); font-size:10pt}
+</style>
+</head>
+<body>
+
+<h1>The Art Business Reference</h1>
+<p class="sub">Verified findings, September 2026. Every claim here was checked against a primary source — a government agency, a statute, or the vendor's own published page. Where no primary source exists, it says so instead of guessing.</p>
+
+<div class="box">
+  <p><strong>How to read this.</strong> Three labels appear throughout:</p>
+  <p><span class="tag v">Verified</span> — checked against a primary source, cited at the end.</p>
+  <p><span class="tag g">Guidance</span> — widely repeated practice with no primary source. Useful, but it is a starting point to test, not a fact.</p>
+  <p><span class="tag x">Corrected</span> — this was written down wrongly at some point and has been fixed. Shown so you know the number changed.</p>
+</div>
+
+<h2>1. Pricing</h2>
+
+<h3>The formula</h3>
+<p>Ask = (materials + (hours × your hourly rate) + framing) ÷ (1 − channel cut) ÷ (1 − tax reserve). The channel cut is the number that moves the result most, because it is paid by the buyer, not by you.</p>
+
+<p><span class="tag v">Verified</span> <strong>The same take-home nearly doubles the ask through a gallery.</strong> On an 18×24 at $3/sq in: a Stripe sale needs about $1,460 to leave you $1,417. A 50% gallery needs about $2,830 to leave you $1,415. That is the real cost of consignment — and the mechanism behind why the designer channel beats galleries.</p>
+
+<h3>Tax on the profit</h3>
+<ul>
+  <li><span class="tag v">Verified</span> Self-employment tax is <strong>15.3% of 92.35% of net profit</strong> — about <strong>14.13% of profit</strong>. (IRS)</li>
+  <li><span class="tag v">Verified</span> The <strong>2026 Social Security wage base is $184,500</strong>. Above it, only the 2.9% Medicare portion applies. (SSA)</li>
+</ul>
+
+<div class="ask">
+  <p><strong>Still needed from you:</strong> materials cost per size, hours per piece, and your floor hourly rate. Until those exist, every number in the calculator is a default to overwrite — not a figure to quote.</p>
+</div>
+
+<h2>2. Where buyers actually are</h2>
+
+<table>
+  <thead><tr><th>Channel</th><th>Your share</th><th>Payment</th><th>Exclusive?</th></tr></thead>
+  <tbody>
+    <tr><td>Direct (Stripe link)</td><td>~97%</td><td>immediate</td><td>no</td></tr>
+    <tr><td>Designer / trade</td><td>70–80%</td><td>50% deposit + 50% on delivery</td><td>no</td></tr>
+    <tr><td>Gallery consignment</td><td>50% (sometimes 40%)</td><td>~30 days</td><td>often</td></tr>
+    <tr><td>Rental program</td><td>~50% of the rental fee</td><td>monthly</td><td>no</td></tr>
+  </tbody>
+</table>
+
+<p><span class="tag v">Verified</span> <strong>Gallery payment is 30 days.</strong> Four galleries' own consignment agreements and the Artists' Professional Guidelines model contract all say payment within 30 days of sale. <span class="tag x">Corrected</span> An earlier version of these notes said "30–90 days." The 90 had no source.</p>
+
+<p><span class="tag v">Verified</span> <strong>Art rental is real recurring revenue</strong> at <strong>5–10% of the work's value per month</strong>, verified across five programs' own pages. Most credit rental paid toward a later purchase — but the credit is usually <em>partial</em> (50–60%), not full. Four staging leads are sitting in the pipeline treated as one-off placements. They need their own pitch.</p>
+
+<p><span class="tag v">Verified</span> <strong>The trade channel pays you 70–80%</strong> — a 20–30% discount off retail. Verified across four trade programs. Some start lower (15%).</p>
+
+<h2>3. Selling directly</h2>
+
+<p><span class="tag v">Verified</span> <strong>Stripe Payment Links let you sell with no website</strong>, at 2.9% + 30¢ per successful transaction, included at no extra charge on standard pricing.</p>
+
+<table>
+  <thead><tr><th>On a $500 painting</th><th>Fee</th><th>You keep</th></tr></thead>
+  <tbody>
+    <tr><td>Stripe Payment Link</td><td>~$14.80</td><td>~$485</td></tr>
+    <tr><td>Gumroad, direct link</td><td>~$65</td><td>~$435</td></tr>
+    <tr><td>Gumroad Discover</td><td>$150</td><td>$350</td></tr>
+    <tr><td>Gallery at 50%</td><td>$250</td><td>$250</td></tr>
+  </tbody>
+</table>
+
+<ul>
+  <li><span class="tag v">Verified</span> <strong>Refunds do not return the processing fee.</strong> (Stripe docs)</li>
+  <li><span class="tag v">Verified</span> <strong>Stripe is not a merchant of record</strong> — you keep sales-tax responsibility. (Stripe now sells an opt-in "Managed Payments" product that does act as MoR; ordinary Stripe payments do not.)</li>
+  <li><span class="tag v">Verified</span> Gumroad's direct fee is <strong>10% + 50¢</strong>, with card processing charged on top — so roughly 12.9% + 80¢ for a card sale.</li>
+  <li><span class="tag v">Verified</span> <strong>Gumroad does not allow physical goods.</strong> Your originals were never their fit.</li>
+</ul>
+
+<h2>4. Outreach</h2>
+
+<p><span class="tag v">Verified</span> <strong>Cold outreach email is legally regulated, and business-to-business has no exemption.</strong> Every pitch email needs a valid physical postal address, a clear ad identification, and a working opt-out honoured within 10 business days. Maximum penalty is <strong>$53,088 per email</strong> — confirmed current for 2026 (the FTC's 2026 inflation adjustment was cancelled, so 2025 levels continue).</p>
+
+<p><span class="tag v">Verified</span> <strong>A USPS-registered PO box or a commercial mail receiving agency box is sufficient</strong> — it does not have to be your home address. It must be a box <em>registered</em> with USPS or a CMRA established under Postal Service regulations, not just any drop address.</p>
+
+<div class="ask">
+  <p><strong>The one thing blocking every draft:</strong> a mailing address for the footer. Three drafts are written and ready. This is the only decision standing between them and the lead list.</p>
+</div>
+
+<h3>Two checks before any pitch</h3>
+<ul>
+  <li><strong>"Designer-facing" does not mean "buyer."</strong> Check which side of the transaction they are on. <span class="tag v">Verified</span> Holloway Studios describes itself as a designer- and artist-led <em>production house</em> that makes its own commissioned work — pitching your originals to them is pitching a competitor. Reclassified out of the top fits.</li>
+  <li><strong>Look for an open call before writing a cold email.</strong> <span class="tag v">Verified</span> Celestial Art Curation publishes an open application for Chicago-area and emerging artists seeking representation. Applying beats pitching.</li>
+</ul>
+
+<p><span class="tag v">Verified</span> <strong>Delia LaJeunesse takes no cut of your price.</strong> She charges her clients a 10% markup on sourced art and states there is no artist representation involved. <em>Precision:</em> she also advertises a separate 10% referral fee to realtors — so "no cut" is true of <em>your</em> price, not of all her pricing. She is still the highest-value name on the list, because your price survives intact.</p>
+
+<h2>5. Listing copy</h2>
+
+<p>Six blocks: title, medium and support, dimensions, year, story, and how to buy. The story is the highest-leverage part — see §9.</p>
+
+<p><span class="tag v">Verified</span> <strong>The moment you sell prints, art description becomes a legal question.</strong> Under California Civil Code §§1740–1745.5, any fine-art multiple sold at <strong>$100 or more</strong> requires a certificate of authenticity, and stating an edition size for a print made after <strong>1 January 1983</strong> is an <strong>express warranty that no additional copies exist anywhere</strong>.</p>
+
+<p><span class="tag x">Corrected</span> <strong>Wisconsin is not the same rule.</strong> Georgia genuinely tracks California. Wisconsin runs a separate regime — ATCP ch. 117 — that triggers on "investment art" priced over <strong>$800</strong>, not $100, and requires a specific signed disclosure statement. Write to the California standard; do not assume the states match.</p>
+
+<p>Your originals are exempt from all of this. Prints are what trigger it.</p>
+
+<h2>6. Photographing the work</h2>
+
+<p>Every other document here is capped by the photograph. A bad photo is the most common reason good work is passed over.</p>
+
+<ul>
+  <li><span class="tag v">Verified</span> <strong>Put a grey card and a colour target in the frame.</strong> It is standard practice in every cultural-heritage imaging workflow, and it is what makes the file interpretable to someone who has never seen the work in person. <em>Precision:</em> you white-balance off the <strong>grey scale</strong>, not the colour patches — the Art Institute of Chicago's own target instructions say the colour patches are "primarily a viewing aid."</li>
+  <li><span class="tag v">Verified</span> <strong>Diffuse light, off-axis.</strong> Overcast beats sun. Direct sun makes harsh contrast.</li>
+  <li><strong>For framed work, glare is the whole problem.</strong> The clean answer is to photograph the piece <em>unframed</em> — cheapest and best.</li>
+  <li><span class="tag x">Corrected</span> <strong>Cross-polarisation costs light, but not four stops.</strong> The "up to four stops (16×)" figure came from forums; no conservation-imaging standard states it. The primary source that quantifies it gives <strong>at least 1.3 stops</strong> of loss for diffuse reflections. The direction is right — it needs real lighting power — but do not plan around four stops.</li>
+  <li><strong>Shoot RAW, and check every export on a phone.</strong> Your work is black figure on stained paper — a narrow tonal range where highlights clip easily, and a wide-gamut file looks wrong on the screen the buyer is holding.</li>
+</ul>
+
+<h2>7. Shipping</h2>
+
+<p><span class="tag v">Verified</span> <strong>The packing is what makes a claim payable.</strong> Under USPS rules, articles "improperly packaged or too fragile to withstand normal handling" are <strong>ineligible for coverage entirely</strong>. Under-packed work is not just uninsured — it is outside the scheme.</p>
+
+<p><span class="tag v">Verified</span> <strong>UPS assumes a default liability of $100 per package</strong> unless a higher value is declared in writing. <span class="tag x">Corrected</span> <strong>USPS has no default liability at all</strong> — uninsured mail is generally not compensable. What USPS does is <em>include</em> $100 of insurance with Priority Mail, Priority Mail Express and Ground Advantage. Same outcome for those services, different mechanism.</p>
+
+<table>
+  <thead><tr><th>Service</th><th>Coverage</th><th>Note</th></tr></thead>
+  <tbody>
+    <tr><td>USPS Priority / Express / Ground Advantage</td><td>$100 included</td><td>needs a tracking barcode</td></tr>
+    <tr><td>USPS standard insurance</td><td>up to $5,000</td><td>online or at the counter</td></tr>
+    <tr><td><strong>USPS Registered Mail</strong></td><td><strong>up to $50,000</strong></td><td>counter only; signed at each stage</td></tr>
+    <tr><td>UPS declared value</td><td>up to $50,000</td><td>must be declared in writing</td></tr>
+  </tbody>
+</table>
+
+<p><span class="tag x">Corrected</span> <strong>The advice to "always buy insurance at the counter" is out of date for ordinary insurance.</strong> USPS online coverage was once capped at $200, then $500 — but it was permanently raised to <strong>$5,000 in 2010</strong> to match counter coverage. The one real exception left is <strong>Registered Mail, whose $50,000 ceiling is counter-only.</strong></p>
+
+<p><strong>At your scale:</strong> USPS Registered Mail for anything over a few hundred dollars. Below that, Priority Mail with purchased insurance. Ship unframed and flat — that removes the glass-breaks-and-cuts-the-work failure you are most exposed to.</p>
+
+<h2 class="pagebreak">8. Tax and registration</h2>
+
+<p><span class="tag v">Verified</span> <strong>Selling art switches on two things at once, and there is no artist exemption for either.</strong></p>
+
+<ul>
+  <li><strong>Illinois sales tax.</strong> IDOR's own guidance is explicit: whether your sales are full-time or "as a hobby," you are subject to the requirements, and <em>all</em> Illinois taxpayers must register for each tax type. Failing to register is a criminal offence. <span class="tag x">Corrected</span> <strong>Registration is Form REG-1</strong> (via MyTax Illinois). <strong>ST-1 is the recurring return</strong>, not the registration form — an earlier version of these notes had that backwards.</li>
+  <li><strong>City of Chicago business licence.</strong> Municipal Code 4-4-020(a): "All businesses must be licensed to operate in the City of Chicago." The exemptions are state-licensed professions and a specific chapter list — <strong>no artist exemption.</strong> The penalty under 4-4-010 is <strong>$500–$1,000 per offence, and each day is a separate offence.</strong></li>
+</ul>
+
+<p><span class="tag v">Verified</span> <strong>The home-occupation rules fit your actual plan.</strong> Chicago forbids "direct sale of any product on display shelves or racks" and caps occupancy at two patrons or employees at one time. So a home gallery is out — but payment links and shipping to buyers sit comfortably. That is a lucky fit rather than a designed one.</p>
+
+<div class="ask">
+  <p><strong>Three questions still open, and nothing about pricing or records works until they are answered:</strong> are you registered for Illinois sales tax? Do you have a Chicago business licence? Is this a business or still a hobby on your return?</p>
+  <p>Deliberately not decided here: any tax <em>rate</em> (no primary source was found, and a wrong number is worse than none) and whether commissions fall under the service tax instead of the retail tax. Both are for your preparer.</p>
+</div>
+
+<h2>9. Commissions and copyright</h2>
+
+<p><span class="tag v">Verified</span> <strong>Commissioning a painting cannot transfer your copyright by accident.</strong> Under 17 U.S.C. §204(a), a transfer is only valid if it is in writing and signed. And the "work made for hire" route does not apply: for a specially commissioned work it requires the work to fall in one of <strong>nine statutory categories</strong> — and paintings and drawings are not among them.</p>
+
+<p><strong>So you keep the copyright unless you sign it away, and selling the physical piece does not sell the right to reproduce it.</strong> Reproduction, prints and licensing are a separate written licence at a separate price. That is a product you have not been selling. Most artists give it away without noticing.</p>
+
+<p><span class="tag g">Guidance</span> <strong>The commonly cited "price commissions 20–50% above comparable retail" has no primary source.</strong> Every source for it is an artist blog or industry guide. Treat it as a starting point to test, not a norm to apply. The <strong>50% non-refundable deposit</strong> is standard practice for the same reason — sensible, not documented.</p>
+
+<p>Two terms worth naming, because they are where commissions go wrong: the deposit also <em>qualifies</em> the client; and final payment should fall due <strong>on completion, not on approval</strong> — otherwise the client has unlimited revisions.</p>
+
+<h2>10. Submissions and the lookbook</h2>
+
+<p><span class="tag x">Corrected</span> <strong>There is no universal submission spec.</strong> Verified across five organisations' own pages, the longest-side requirement runs from <strong>1920 px to 4200 px</strong> and the file cap from <strong>5 MB to 12 MB</strong>. A 2100 px / 5 MB export is a <em>safe default</em>, not a rule — read the specific call.</p>
+
+<ul>
+  <li><strong>Near-universal:</strong> JPEG, sRGB, no watermarks or signatures, clean self-describing filenames.</li>
+  <li><strong>Work list:</strong> title, medium, dimensions, year, price if asked. Every submission expects this.</li>
+  <li><strong>Count:</strong> typically 10–15 images for a gallery or juried call.</li>
+</ul>
+
+<p><span class="tag x">Corrected</span> <strong>The claim that "attention drops, so the first two or three pieces carry the portfolio" has no source.</strong> It was written as fact and it is folk practice — the order-effect literature finds recency as often as primacy, and nothing supports a "first two or three" cutoff. The practical advice still holds (lead with your strongest work), but it rests on "reviewers may stop early," not on a measured attention curve.</p>
+
+<h2>11. What is still needed from you</h2>
+
+<div class="ask">
+  <p><strong>Per-piece dimensions and years.</strong> Title, medium, support, height, width, year, framed, price — for every work. This is the single input the whole system waits on: the listings, the pricing calculator, the lookbook and every submission. Nothing else unblocks until it exists.</p>
+  <p>Also unresolved: five pieces on your Carrd are all captioned "22×16 Canvas." Either that is real or it is an untailored template caption — and five identically-sized titles is the pattern a reviewer reads as templated.</p>
+</div>
+
+<h2>12. Sources</h2>
+<p style="font-size:10.5pt; color:#5a5a5a">
+IRS Topic 554 and the self-employment tax pages · SSA contribution base table · Stripe pricing and refund documentation · Gumroad pricing and prohibited-items policy · FTC CAN-SPAM compliance guide and the Federal Register civil-penalty notice of 15 September 2026 · U.S. Copyright Office Circulars 12 and 30 and 17 U.S.C. §§101, 204 · California Civil Code §§1740–1745.5 (leginfo) · O.C.G.A. §10-1-431 · Wisconsin Admin. Code ATCP ch. 117 · Illinois Department of Revenue (tax.illinois.gov) · Chicago Municipal Code 4-4-010, 4-4-020, and the BACP home-based business fact sheet · USPS PS Form 3806, Domestic Mail Manual, insurance pages and Postal Bulletin 22299 · UPS Tariff and Terms of Service · Art Institute of Chicago photodocumentation target instructions · FADGI technical guidelines · YouTube Help: channel monetization policies, YPP eligibility, appeal guidance, upload encoding settings · Google YouTube Data API v3 documentation and quota calculator · BLS Occupational Outlook Handbook, interior designers · the individual galleries, trade programs and rental programs cited in the working notes.
+</p>
+
+<footer>
+  <p>Compiled 26 September 2026. Every figure labelled <strong>Verified</strong> was checked against the primary source named above on that date. Prices, policies and statutes change — re-check anything before acting on it at size.</p>
+</footer>
+
+</body>
+</html>
