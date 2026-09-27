@@ -67,29 +67,49 @@ $$(".tab").forEach((t) => t.addEventListener("click", () => {
 
 /* ================= PORTFOLIO ================= */
 /* Story drafts written from the work itself. These are starting points —
-   edit them until they sound like you. A story is worth 30–150% on price. */
+   edit them until they sound like you.
+   ⚠ The "a story is worth 30–150% on price" line that used to sit here was
+   removed 2026-09-27: no primary source exists for it. The real, smaller
+   evidence is the Hill Holliday study (~11% on a painting) and the Significant
+   Objects project, which is striking but not a controlled experiment. Write the
+   story because it is true and it helps, not because of a number. */
+
+/* ⚠ THE ORDER IS THE POINT — do not sort this list.
+   Strongest first, then range, then a closer that lingers. A reviewer decides
+   in the first few seconds, and plenty of them never reach the end, so the
+   opener has to stop someone mid-scroll and the best work must not be saved
+   for a finale. Rules it obeys: never more than 2–4 from one series in a row,
+   alternate intensity, and nothing in the middle you would have to apologise
+   for. Full reasoning: memory/reference/art-lookbook.md */
 const WORKS = [
   {
-    file: "works/gallery01-a9861849.jpg", title: "", note: "",
-    story: "She isn't posing. She's reading, and she's forgotten that anyone might be watching. That's the whole drawing — someone completely inside her own head, at ease in there.",
-  },
-  {
-    file: "works/gallery01-ba89e3fc.jpg", title: "", note: "",
-    story: "A glass of wine, a hand at her chin, a thought she hasn't finished. She isn't waiting for anyone. She's just sitting with it.",
-  },
-  {
-    file: "works/gallery01-aabb1c2a.jpg", title: "", note: "",
-    story: "Eyes closed, face turned away. This is one of the most private drawings I've made — a moment that was never meant to be watched.",
-  },
-  {
-    file: "works/gallery01-983967f5.jpg", title: "", note: "",
-    story: "The old gods were also just bodies in a room. He isn't a statue here. He's a face with vines in his hair, and he doesn't need us to look at him.",
-  },
-  {
+    // 1 — the opener. The most arresting thing she has.
     file: "works/gallery01-bcb759d1.jpg", title: "", note: "",
     story: "Everyone knows what happened to Medusa. I painted her anyway — not as a monster, not as a victim, but as someone who has stopped caring what the story says about her.",
   },
   {
+    // 2 — the most buyable image: warm, readable, obviously hangs in a room.
+    file: "works/gallery01-ba89e3fc.jpg", title: "", note: "",
+    story: "A glass of wine, a hand at her chin, a thought she hasn't finished. She isn't waiting for anyone. She's just sitting with it.",
+  },
+  {
+    // 3 — where Medusa is drama, this is speed and confidence.
+    file: "works/gallery01-a9861849.jpg", title: "", note: "",
+    story: "She isn't posing. She's reading, and she's forgotten that anyone might be watching. That's the whole drawing — someone completely inside her own head, at ease in there.",
+  },
+  {
+    // 4 — the delicate one. Proves she can render finely as well as loosely.
+    file: "works/gallery01-aabb1c2a.jpg", title: "", note: "",
+    story: "Eyes closed, face turned away. This is one of the most private drawings I've made — a moment that was never meant to be watched.",
+  },
+  {
+    // 5 — mythic, and the piece she already has a room mockup for.
+    file: "works/gallery01-983967f5.jpg", title: "", note: "",
+    story: "The old gods were also just bodies in a room. He isn't a statue here. He's a face with vines in his hair, and he doesn't need us to look at him.",
+  },
+  {
+    // 6 — the closer. Strongest title, most conceptual, points at where the
+    // practice is going. Its title still needs confirming.
     file: "works/gallery03-c9abc75a.jpg", title: "", note: "",
     story: "Her body is the book. She has read it, she keeps reading it, and she doesn't need anyone else's notes in the margin.",
   },
@@ -158,10 +178,71 @@ function renderWorksNote() {
   const el = $("#works-note");
   if (!el) return;
   const named = Object.values(captions).filter((c) => c && c.title && c.title.trim()).length;
+  const sized = Object.values(captions).filter((c) => c && c.note && c.note.trim()).length;
   el.textContent = named === 0
     ? "Nothing named yet. Tap a caption to start — your titles save automatically on this device."
-    : `${named} of ${WORKS.length} named. Send me the finished list and I'll build a designer-ready lookbook PDF.`;
+    : `${named} of ${WORKS.length} named, ${sized} sized. Print it whenever you like — blanks print as blanks, so you can see what is still missing.`;
 }
+
+/* ---------------- The printable lookbook ----------------
+   Built from whatever is on this device right now, in the running order above.
+   Anything not filled in yet prints as a visible blank rather than being
+   dropped, so the page doubles as the checklist of what is left to do. */
+const LOOKBOOK_STANDING = [
+  "Figures absorbed in their own lives — in black, on aged paper.",
+  "Original figurative line work. One of a kind, quiet, and made for rooms that feel inhabited rather than decorated.",
+];
+
+function renderLookbookDoc() {
+  const doc = $("#lookbook-doc");
+  if (!doc) return;
+
+  const pieces = WORKS.map((w, i) => {
+    const c = captions[w.file] || {};
+    return {
+      n: i + 1,
+      title: (c.title || "").trim(),
+      note: (c.note || "").trim(),
+      story: (c.story || w.story || "").trim(),
+    };
+  });
+
+  const missing = pieces.filter((p) => !p.title || !p.note).length;
+
+  doc.innerHTML = `
+    <header class="lb-head">
+      <h1>Alisa Rigolin</h1>
+      <p class="lb-sub">Selected work — ${pieces.length} pieces</p>
+      <p class="lb-standing">${LOOKBOOK_STANDING[0]}</p>
+    </header>
+    <ol class="lb-list">
+      ${pieces.map((p) => `
+        <li class="lb-piece">
+          <div class="lb-frame"><span>photograph</span></div>
+          <div class="lb-text">
+            <h2>${p.title || `<span class="lb-blank">title —</span>`}</h2>
+            <p class="lb-meta">${p.note || `<span class="lb-blank">medium · size —</span>`}</p>
+            <p class="lb-story">${p.story}</p>
+          </div>
+        </li>`).join("")}
+    </ol>
+    <footer class="lb-foot">
+      <p>${LOOKBOOK_STANDING[1]}</p>
+      ${missing ? `<p class="lb-todo">Still to fill in: ${missing} of ${pieces.length} pieces need a title or a size.</p>` : ""}
+      <p class="lb-contact">Alisa Rigolin · alisaart2.carrd.co</p>
+    </footer>`;
+}
+
+const lbPrint = $("#lb-print");
+if (lbPrint) lbPrint.addEventListener("click", () => {
+  renderLookbookDoc();
+  document.body.classList.add("print-lookbook");
+  const done = () => document.body.classList.remove("print-lookbook");
+  window.addEventListener("afterprint", done, { once: true });
+  window.print();
+  // Safari on iOS does not always fire afterprint; put the class back anyway.
+  setTimeout(done, 2000);
+});
 
 /* ================= PRICING ================= */
 function computePrice() {

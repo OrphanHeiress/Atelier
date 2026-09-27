@@ -328,11 +328,21 @@ button.copy.plain:hover { background: var(--ink); color: var(--paper); }
 
 /* ---------- print: only the line sheet ---------- */
 @media print {
-  header, nav, #gate, .noprint, .tab { display: none !important; }
+  /* ⚠ Scoped to the app's own chrome, NOT to every <header> in the document.
+     Written bare, this rule also hid the lookbook's printed title block — a
+     semantic <header> inside the content — so the page printed with no name on
+     it. Any element-level rule in a print stylesheet needs a scope. */
+  #app > header, nav, #gate, .noprint, .tab { display: none !important; }
   body { background: #fff; }
   main { padding: 0; max-width: none; }
   .view { display: none !important; }
   #linesheet { display: block !important; }
+  /* Printing the lookbook instead: same treatment, different target. */
+  body.print-lookbook #linesheet { display: none !important; }
+  body.print-lookbook #lookbook { display: none !important; }
+  body.print-lookbook #lookbook-doc { display: block !important; }
+  .lb-piece { break-inside: avoid; }
+  .lb-frame { border-color: #bbb; }
   .lsdoc {
     border: none; border-radius: 0; box-shadow: none; padding: 0; margin: 0;
   }
@@ -379,3 +389,53 @@ button.copy.plain:hover { background: var(--ink); color: var(--paper); }
   .chat { max-height: 60vh; }
   .msg { max-width: 95%; }
 }
+
+/* ---------- the printable lookbook ---------- */
+/* Hidden on screen; shown only when the lookbook print button is used. */
+#lookbook-doc { display: none; }
+
+.lb-doc {
+  color: #111;
+  font-size: 12pt;
+  line-height: 1.5;
+}
+.lb-head { margin-bottom: 22px; }
+.lb-head h1 { font-size: 26pt; margin: 0 0 2px; letter-spacing: -0.01em; }
+.lb-sub {
+  margin: 0 0 10px;
+  font-size: 10pt;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #666;
+}
+.lb-standing { margin: 0; font-size: 13pt; font-style: italic; color: #333; }
+
+.lb-list { list-style: none; margin: 0; padding: 0; }
+.lb-piece {
+  display: grid;
+  grid-template-columns: 2.1in 1fr;
+  gap: 16px;
+  padding: 16px 0;
+  border-top: 1px solid #ddd;
+}
+.lb-frame {
+  aspect-ratio: 4 / 5;
+  border: 1px dashed #bbb;
+  border-radius: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #aaa;
+  font-size: 8.5pt;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+.lb-text h2 { font-size: 14pt; margin: 0 0 3px; }
+.lb-meta { margin: 0 0 8px; font-size: 10pt; color: #666; }
+.lb-story { margin: 0; }
+.lb-blank { color: #c0392b; font-style: italic; }
+
+.lb-foot { margin-top: 26px; padding-top: 14px; border-top: 1px solid #ddd; }
+.lb-foot p { margin: 0 0 8px; font-size: 11pt; }
+.lb-todo { color: #8a4b00; font-weight: 600; }
+.lb-contact { color: #666; font-size: 10pt; }
