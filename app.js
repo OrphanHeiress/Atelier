@@ -413,8 +413,8 @@ function renderLeads() {
 const MOVES = [
   {
     id: "leads",
-    title: "Contact the five warmest leads",
-    what: "Short, personal intros to Holloway Studios, Lauren Coburn, Delia LaJeunesse, Emily Colvin, and deKor LA.",
+    title: "Contact the ten Los Angeles leads",
+    what: "Short, personal intros to Delia LaJeunesse, Emily Colvin, Art Solutions, deKor LA, Annie Wharton, ARTLOUDLA, Artspace Warehouse, Mimesis, Vanessa Villegas and Midnight Gallery.",
     why: "They already source from independent artists, so you're not cold. One good designer reorders 4–10× a year.",
     effort: "1 hour",
   },
